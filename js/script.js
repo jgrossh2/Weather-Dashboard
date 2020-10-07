@@ -1,26 +1,52 @@
-var list = JSON.parse(localStorage.getItem('city')) || [];
+var list = JSON.parse(localStorage.getItem('citylist')) || [];
+var currentDayEl = document.getElementById('day');
+var day1 = document.getElementById('date1');
+var day2 = document.getElementById('date2');
+var day3 = document.getElementById('date3');
+var day4 = document.getElementById('date4');
+var day5 = document.getElementById('date5');
+
+
+var displayDay= moment().format('L');
+console.log(displayDay);
+currentDayEl.textContent = displayDay;
+day1.textContent = displayDay;
+
+var weekDay2= moment().add(1, 'days').format('L');
+day2.textContent= weekDay2;
+
+var weekDay3 = moment().add(2, 'days').format('L');
+day3.textContent = weekDay3;
+
+var weekDay4 = moment().add(3, 'days').format('L');
+day4.textContent = weekDay4;
+
+var weekDay5 = moment().add(4, 'days').format('L');
+day5.textContent = weekDay5;
+
 
 // lists cities on the page
-var cityDisplay = function(list) {
+var cityDisplay = function() {
     // empties html
     $("list-group").empty();
 
 // iterates over the list
 for (var i = 0; i < list.length; i++) {
     //create new var to hold the li tag
-    var searchCity = $('<li>');
+    var searchCity = $('<p>');
     searchCity.text(list[i]);
 
     //adds city to the list
     $("list-group").append(searchCity);
-}
+    console.log("hi");
+    }
 };
 
 $('#city').on("click", function(event) {
     event.preventDefault();
 
     //get city value and store as var
-    var city = $("city")
+    var city = $("citylist")
     .val()
     .trim();
     //add new city to list
@@ -33,7 +59,7 @@ $('#city').on("click", function(event) {
     //clear search box
     $("search").val('');
 });
-
+cityDisplay(list);
 
 // add dates in boxes
 //console log to find display issue

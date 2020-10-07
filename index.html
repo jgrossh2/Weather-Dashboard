@@ -26,19 +26,19 @@
                           <input class="form-control mr-sm-2" type="search" aria-label="Search">
                           <button class="btn" type="submit"><span class="oi oi-magnifying-glass"></span></button>
                         </form>
-                            <ul class="list-group">
+                            <div class="list-group">
                                 <!-- <li class="list-group-item">Cras justo odio</li> -->
                                 <!-- <li class="list-group-item">Dapibus ac facilisis in</li>
                                 <li class="list-group-item">Morbi leo risus</li>
                                 <li class="list-group-item">Porta ac consectetur ac</li>
                                 <li class="list-group-item">Vestibulum at eros</li> -->
-                            </ul>
+                                </div>
                     </nav>
                 </div>
                 <!--search area end-->
                 <!--city information-->
                 <div class="col-sm-8 border">
-                    <h3 id="city-name day">City name, Date, icon</h3>
+                    <h3 id="day"></h3>
                     <p id="temp">Temperature: </p>
                     <p id="humid">Humidity: </p>
                     <p id="wind">Wind Speed: </p>
@@ -56,7 +56,7 @@
                     <!--cards for each day forecast-->
                     <div class="row">
                     <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-                        <div class="card-header">Date</div>
+                        <div id="date1">Date</div>
                         <div class="card-body">
                           <h5 class="card-title">icon</h5>
                           <p class="card-text">Temp:</p>
@@ -64,7 +64,7 @@
                         </div>
                       </div>
                       <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-                        <div class="card-header">Date</div>
+                        <div id="date2">Date</div>
                         <div class="card-body">
                           <h5 class="card-title">icon</h5>
                           <p class="card-text">Temp:</p>
@@ -72,7 +72,7 @@
                         </div>
                       </div>
                       <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-                        <div class="card-header">Date</div>
+                        <div id="date3">Date</div>
                         <div class="card-body">
                           <h5 class="card-title">icon</h5>
                           <p class="card-text">Temp:</p>
@@ -80,7 +80,7 @@
                         </div>
                       </div>
                       <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-                        <div class="card-header">Date</div>
+                        <div id="date4">Date</div>
                         <div class="card-body">
                           <h5 class="card-title">icon</h5>
                           <p class="card-text">Temp:</p>
@@ -88,7 +88,7 @@
                         </div>
                       </div>
                       <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-                        <div class="card-header">Date</div>
+                        <div id="date5">Date</div>
                         <div class="card-body">
                           <h5 class="card-title">icon</h5>
                           <p class="card-text">Temp:</p>
@@ -100,7 +100,7 @@
                 </div>
             </div>
         </div>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="./js/script.js" ></script>
     </body>
