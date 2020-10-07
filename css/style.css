@@ -1,0 +1,21 @@
+.text-white {
+    font-size: 32px;
+    margin: auto;
+}
+.search {
+    font-size: 26px;
+}
+.list-group {
+    margin: 25px 0 0 0;
+}
+.btn {
+    font-size: 22px;
+    background-color: aqua;
+}
+.border {
+    margin: 25px 0 0 0;
+}
+.card {
+    display: inline-block;
+    font-size: 10px;
+}
