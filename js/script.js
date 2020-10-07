@@ -33,3 +33,9 @@ $('#city').on("click", function(event) {
     //clear search box
     $("search").val('');
 });
+
+
+// add dates in boxes
+//console log to find display issue
+//link api for weather information
+//find weather icons
