@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css"/>
         <link rel="stylesheet" href="./css/style.css"/>
-        <title>Weather-Dashboard</title>
+        <title>Weather Dashboard</title>
     </head>
     <body>
         <!-- Nav bar heading -->
@@ -20,66 +20,79 @@
                 <div class="col-sm-4">
                     <nav class="navbar navbar-light bg-light">
                         <form class="form-inline">
-                            <h2 class="search">Search for a City:</h2>
-                          <input class="form-control mr-sm-2" type="search" placeholder="Search City" aria-label="Search">
+                            <h2 class="search" data-city="city">Search for a City:</h2>
+                                
+
+                          <input class="form-control mr-sm-2" type="search" aria-label="Search">
                           <button class="btn" type="submit"><span class="oi oi-magnifying-glass"></span></button>
                         </form>
                             <ul class="list-group">
-                                <li class="list-group-item">Cras justo odio</li>
-                                <li class="list-group-item">Dapibus ac facilisis in</li>
+                                <!-- <li class="list-group-item">Cras justo odio</li> -->
+                                <!-- <li class="list-group-item">Dapibus ac facilisis in</li>
                                 <li class="list-group-item">Morbi leo risus</li>
                                 <li class="list-group-item">Porta ac consectetur ac</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
+                                <li class="list-group-item">Vestibulum at eros</li> -->
                             </ul>
                     </nav>
                 </div>
                 <!--search area end-->
                 <!--city information-->
                 <div class="col-sm-8 border">
-
+                    <h3 id="city-name day">City name, Date, icon</h3>
+                    <p id="temp">Temperature: </p>
+                    <p id="humid">Humidity: </p>
+                    <p id="wind">Wind Speed: </p>
+                    <p id="uv"> UV Index: </p>
 
                 </div>
             </div>
             <div class="row">
+                <!--empty space for search cities to add-->
                 <div class="col-sm-4">
 
                 </div>
                 <div class="col-sm-8">
                     <h3>5-Day Forecast</h3>
+                    <!--cards for each day forecast-->
                     <div class="row">
-                    <div class="card text-white bg-primary mb-3" style="max-width: 8rem;">
-                        <div class="card-header">Header</div>
+                    <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                        <div class="card-header">Date</div>
                         <div class="card-body">
-                          <h5 class="card-title">Primary card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <h5 class="card-title">icon</h5>
+                          <p class="card-text">Temp:</p>
+                          <p class="card-text">Humidity:</p>
                         </div>
                       </div>
-                      <div class="card text-white bg-primary mb-3" style="max-width: 8rem;">
-                        <div class="card-header">Header</div>
+                      <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                        <div class="card-header">Date</div>
                         <div class="card-body">
-                          <h5 class="card-title">Primary card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <h5 class="card-title">icon</h5>
+                          <p class="card-text">Temp:</p>
+                          <p class="card-text">Humidity:</class>
                         </div>
                       </div>
-                      <div class="card text-white bg-primary mb-3" style="max-width: 8rem;">
-                        <div class="card-header">Header</div>
+                      <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                        <div class="card-header">Date</div>
                         <div class="card-body">
-                          <h5 class="card-title">Primary card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <h5 class="card-title">icon</h5>
+                          <p class="card-text">Temp:</p>
+                          <p class="card-text">Humidity:</p>
                         </div>
                       </div>
-                      <div class="card text-white bg-primary mb-3" style="max-width: 8rem;">
-                        <div class="card-header">Header</div>
+                      <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                        <div class="card-header">Date</div>
                         <div class="card-body">
-                          <h5 class="card-title">Primary card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <h5 class="card-title">icon</h5>
+                          <p class="card-text">Temp:</p>
+                          <p class="card-text">Humidity:</p>
                         </div>
                       </div>
-                      <div class="card text-white bg-primary mb-3" style="max-width: 8rem;">
-                        <div class="card-header">Header</div>
+                      <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                        <div class="card-header">Date</div>
                         <div class="card-body">
-                          <h5 class="card-title">Primary card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <h5 class="card-title">icon</h5>
+                          <p class="card-text">Temp:</p>
+                          <p class="card-text">Humidity:</p>
                         </div>
                       </div>
                       </div>
@@ -88,7 +101,7 @@
             </div>
         </div>
 
-
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="./js/script.js" ></script>
     </body>
     </html>
