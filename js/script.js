@@ -26,22 +26,12 @@ day4.textContent = weekDay4;
 var weekDay5 = moment().add(5, 'days').format('L');
 day5.textContent = weekDay5;
 
-// $(".btn").on("click", function(event) {
-//     event.preventDefault();
-//     console.log("hi");
-//     var city = $(".form-control")
-//     .val()
-//     .trim();
-//     // cityList.push(city);
-    // localStorage.setItem('citylist', JSON.stringify(city));
-// });
 var list = JSON.parse(localStorage.getItem('citylist')) || [];
 // lists cities on the page
 var cityDisplay = function() {
     // empties html
     $("#cities").empty();
 
-    
 // iterates over the list
 for (var i = 0; i < list.length; i++) {
     //create new var to hold the p tag
@@ -52,7 +42,7 @@ for (var i = 0; i < list.length; i++) {
     //adds city to the list
     $("#cities").append(searchCity);
     console.log("hi");
-
+}
 $('.btn').on("click", function(event) {
     event.preventDefault();
     console.log("btn");
@@ -70,21 +60,9 @@ $('.btn').on("click", function(event) {
 
     //clear search box
     $("search").val('');
-
-// // iterates over the list
-// for (var i = 0; i < list.length; i++) {
-//     //create new var to hold the p tag
-//     var searchCity = $('<p>');
-//     searchCity.text(list[i]);
-//     console.log("hello");
-
-//     //adds city to the list
-//     $("#cities").append(searchCity);
-//     console.log("hi");
-//     };
 });
 };
-}
+
 cityDisplay()
 
 
