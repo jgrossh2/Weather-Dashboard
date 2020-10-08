@@ -133,53 +133,47 @@ var cityWeather = function(city) {
             return response.json();
         })
         .then(function(data) {
+            console.log(data, city)
             var Temp1El = document.querySelector('.Temp1');
-            Temp1El.textContent = "Temperature: " + data.daily[1].temp.day + "*F";
+            Temp1El.textContent = "Temperature: " + data.daily[0].temp.day + "*F";
             var Temp2El = document.querySelector('.Temp2');
-            Temp2El.textContent = "Temperature: " + data.daily[2].temp.day + "*F";
+            Temp2El.textContent = "Temperature: " + data.daily[1].temp.day + "*F";
             var Temp3El = document.querySelector('.Temp3');
-            Temp3El.textContent = "Temperature: " + data.daily[3].temp.day + "*F";
+            Temp3El.textContent = "Temperature: " + data.daily[2].temp.day + "*F";
             var Temp4El = document.querySelector('.Temp4');
-            Temp4El.textContent = "Temperature: " + data.daily[4].temp.day + "*F";
+            Temp4El.textContent = "Temperature: " + data.daily[3].temp.day + "*F";
             var Temp5El = document.querySelector('.Temp5');
-            Temp5El.textContent = "Temperature: " + data.daily[5].temp.day + "*F";
+            Temp5El.textContent = "Temperature: " + data.daily[4].temp.day + "*F";
             var Humid1El = document.querySelector('.Humid1');
-            Humid1El.textContent = "Humidity: " + data.daily[1].humidity + "%";
+            Humid1El.textContent = "Humidity: " + data.daily[0].humidity + "%";
             var Humid2El = document.querySelector('.Humid2');
-            Humid2El.textContent = "Humidity: " + data.daily[2].humidity + "%";
+            Humid2El.textContent = "Humidity: " + data.daily[1].humidity + "%";
             var Humid3El = document.querySelector('.Humid3');
-            Humid3El.textContent = "Humidity: " + data.daily[3].humidity + "%";
+            Humid3El.textContent = "Humidity: " + data.daily[2].humidity + "%";
             var Humid4El = document.querySelector('.Humid4');
-            Humid4El.textContent = "Humidity: " + data.daily[4].humidity + "%";
+            Humid4El.textContent = "Humidity: " + data.daily[3].humidity + "%";
             var Humid5El = document.querySelector('.Humid5');
-            Humid5El.textContent = "Humidity: " + data.daily[5].humidity + "%";
-         });
-         var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=7d95de6a04331392bb18348d8a3c24c9';
-            fetch (apiUrl) 
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
-            // var icon1El= document.querySelector(".Icon1");
-            // var img = document.createElement('img');
-            // img.src = 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
-            // icon1El.appendChild(img);
-            // var icon2El = document.querySelector(".Icon2");
-            // var img = document.createElement('img');
-            // img.src = 'http://openweathermap.org/img/w/' + data.weather[1].icon + '.png';
-            // icon2El.appendChild(img);
-            // var icon3El = document.querySelector(".Icon3");
-            // var img = document.createElement('img');
-            // img.src = 'http://openweathermap.org/img/w/' + data.weather[2].icon + '.png';
-            // icon3El.appendChild(img);
-            // var icon4El = document.querySelector(".Icon4");
-            // var img = document.createElement('img');
-            // img.src = 'http://openweathermap.org/img/w/' + data.weather[3].icon + '.png';
-            // icon4El.appendChild(img);
-            // var icon5El = document.querySelector(".Icon5");
-            // var img = document.createElement('img');
-            // img.src = 'http://openweathermap.org/img/w/' + data.weather[4].icon + '.png';
-            // icon5El.appendChild(img);
+            Humid5El.textContent = "Humidity: " + data.daily[4].humidity + "%";
+            var icon1El= document.querySelector(".Icon1");
+            var img = document.createElement('img');
+            img.src = 'http://openweathermap.org/img/w/' + data.daily[0].weather[0].icon + '.png';
+            icon1El.appendChild(img);
+            var icon2El = document.querySelector(".Icon2");
+            var img = document.createElement('img');
+            img.src = 'http://openweathermap.org/img/w/' + data.daily[1].weather[0].icon + '.png';
+            icon2El.appendChild(img);
+            var icon3El = document.querySelector(".Icon3");
+            var img = document.createElement('img');
+            img.src = 'http://openweathermap.org/img/w/' + data.daily[2].weather[0].icon + '.png';
+            icon3El.appendChild(img);
+            var icon4El = document.querySelector(".Icon4");
+            var img = document.createElement('img');
+            img.src = 'http://openweathermap.org/img/w/' + data.daily[3].weather[0].icon + '.png';
+            icon4El.appendChild(img);
+            var icon5El = document.querySelector(".Icon5");
+            var img = document.createElement('img');
+            img.src = 'http://openweathermap.org/img/w/' + data.daily[4].weather[0].icon + '.png';
+            icon5El.appendChild(img);
         });
     });
 }
