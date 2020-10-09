@@ -67,58 +67,6 @@ var cityDisplay = function() {
     }
 };
 
-$('.btn').on("click", function(event) {
-    event.preventDefault();
-    console.log("cities");
-    //get city value and store as var
-    var city = $(".form-control")
-        .val()
-        .trim();
-    //add new city to list
-    list.push(city);
-    //update list on page
-    $('#cities').append(city);
-    cityDisplay();
-    console.log("here")
-    
-    //save city in local storage
-    localStorage.setItem("cities", JSON.stringify(list));
-    $(".form-control").val('');
-    cityWeather(city);
-    //using api to get icon id to use for url icon image
-    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=7d95de6a04331392bb18348d8a3c24c9';
-    fetch (apiUrl) 
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        var img = document.createElement('img');
-        img.src = 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
-        
-    currentDayEl.innerHTML = city + " (" + displayDay + ") ";
-    currentDayEl.appendChild(img);
-    })
-    $("#cities").on("click", function(event) {
-        event.preventDefault();
-        console.log("works");
-        var citySearchNumber = $(".submit").attr("data-city");
-        console.log(citySearchNumber + " clicked")
-        // var searchAgain = citySearchNumber.getAttribute("data-city");
-        
-        var searchAgain = localStorage.getItem('cities', citySearchNumber);
-        console.log(searchAgain);
-        cities[cities.indexOf(citySearchNumber)]
-        cityWeather(searchAgain);
-        
-        console.log("madeit");
-        // $(".submit").on("click", function(event) {
-            // event.preventDefault();
-            // console.log("does this work")
-
-        
-        // });
-    });
-});
 
 // var city = $(".form-control");
 
@@ -205,8 +153,62 @@ var cityWeather = function(city) {
         
         });
     });
-
 }
+$('.btn').on("click", function(event) {
+    event.preventDefault();
+    console.log("cities");
+    //get city value and store as var
+    var city = $(".form-control")
+        .val()
+        .trim();
+    //add new city to list
+    list.push(city);
+    //update list on page
+    $('#cities').append(city);
+    cityDisplay();
+    console.log("here")
+    
+    //save city in local storage
+    localStorage.setItem("cities", JSON.stringify(list));
+    $(".form-control").val('');
+    cityWeather(city);
+    //using api to get icon id to use for url icon image
+    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=7d95de6a04331392bb18348d8a3c24c9';
+    fetch (apiUrl) 
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        var img = document.createElement('img');
+        img.src = 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
+        
+    currentDayEl.innerHTML = city + " (" + displayDay + ") ";
+    currentDayEl.appendChild(img);
+    })
+    $("#cities").on("click", function(event) {
+        event.preventDefault();
+        console.log("works");
+        // var citySearchNumber = $(".submit").attr("data-city");
+        // console.log(citySearchNumber + " clicked")
+        // var searchAgain = citySearchNumber.getAttribute("data-city");
+        var searchAgain = list[list.indexOf(city)];
+        // var history = localStorage.getItem('cities', searchAgain);
+        // console.log(searchAgain);
+        
+        console.log(searchAgain);
+        cityWeather(searchAgain);
+        
+        console.log("madeit");
+        // $(".submit").on("click", function(event) {
+            // event.preventDefault();
+            // console.log("does this work")
+
+        
+        // });
+    });
+});
+
+
 
     // .catch(function(error) {
     //     //alert if there is a problem
