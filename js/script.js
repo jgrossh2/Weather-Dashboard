@@ -41,14 +41,13 @@ day4.textContent = weekDay4;
 var weekDay5 = moment().add(5, 'days').format('L');
 day5.textContent = weekDay5;
 
-var list = JSON.parse(localStorage.getItem('citylist')) || [];
+var list = JSON.parse(localStorage.getItem('cities')) || [];
 // lists cities on the page
 var cityDisplay = function() {
     //clear search box
     $(".form-control").val('');
     console.log("clear");
     $("#cities").empty();
-    // clearIcon();
 
     // iterates over the list
     for (var i = 0; i < list.length; i++) {
@@ -60,7 +59,6 @@ var cityDisplay = function() {
     var searched = $('<button>');
     searched.attr('data-city', i);
     searched.addClass('submit');
-    // searched.text(city);
     // adds button to the searched city
     searchCity = searchCity.prepend(searched);
         //adds city to the list
@@ -100,21 +98,29 @@ $('.btn').on("click", function(event) {
     currentDayEl.innerHTML = city + " (" + displayDay + ") ";
     currentDayEl.appendChild(img);
     })
-$("#cities").on("click", function(event) {
-    event.preventDefault();
-    console.log("works");
-    cityWeather();
-    console.log(city);
-});
+    $("#cities").on("click", function(event) {
+        event.preventDefault();
+        console.log("works");
+        var citySearchNumber = $(".submit").attr("data-city");
+        console.log(citySearchNumber + " clicked")
+        // var searchAgain = citySearchNumber.getAttribute("data-city");
+        
+        var searchAgain = localStorage.getItem('cities', citySearchNumber);
+        console.log(searchAgain);
+        cities[cities.indexOf(citySearchNumber)]
+        cityWeather(searchAgain);
+        
+        console.log("madeit");
+        // $(".submit").on("click", function(event) {
+            // event.preventDefault();
+            // console.log("does this work")
+
+        
+        // });
+    });
 });
 
-// $(document).on("click", "submit", function() {
-//     var citySearchNumber = $(this).attr("data-city");
-//     console.log(citySearchNumber + "clicked")
-//     list.splice(citySearchNumber, 1);
-//     cityWeather();
-//     localStorage.setItem('cities', JSON.stringify(list));
-// });
+// var city = $(".form-control");
 
 var cityWeather = function(city) {
     // current weather for the city
@@ -126,9 +132,9 @@ var cityWeather = function(city) {
     .then(function(data) {
         console.log(data, city);
         var tempEl = document.querySelector('#temp');
-        tempEl.textContent = "Temperature: " + data.main.temp +"*F";
+        tempEl.textContent = "Temperature: " + data.main.temp + "*F";
         var humidEl = document.querySelector('#humid');
-        humidEl.textContent = "Humidity:" + data.main. humidity +"%";
+        humidEl.textContent = "Humidity:" + data.main. humidity + "%";
         var windEl = document.querySelector('#wind');
         windEl.textContent = "Wind: " + data.wind.speed + "MPH";
         //get lat and lon from api to use for uv api
@@ -196,8 +202,10 @@ var cityWeather = function(city) {
             img5.src = 'http://openweathermap.org/img/w/' + data.daily[4].weather[0].icon + '.png';
             icon5El.textContent = "";
             icon5El.appendChild(img5);
+        
         });
     });
+
 }
 
     // .catch(function(error) {
