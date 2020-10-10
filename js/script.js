@@ -1,4 +1,3 @@
-
 var currentDayEl = document.getElementById('day');
 var day1 = document.getElementById('date1');
 var day2 = document.getElementById('date2');
@@ -157,7 +156,8 @@ var cityWeather = function(city) {
 }
 $('.btn').on("click", function(event) {
     event.preventDefault();
-    console.log("cities");
+    console.log("cities")
+
     //get city value and store as var
     var city = $(".form-control")
         .val()
@@ -170,7 +170,7 @@ $('.btn').on("click", function(event) {
     console.log("here")
     
     //save city in local storage
-    localStorage.setItem("cities", JSON.stringify(list));
+    localStorage.setItem('cities', JSON.stringify(list));
     $(".form-control").val('');
     cityWeather(city);
     //using api to get icon id to use for url icon image
@@ -191,7 +191,7 @@ $('.btn').on("click", function(event) {
         console.log($(this).attr("data-city"));
         var searchCity = $(this).attr("data-city");
         
-        var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=7d95de6a04331392bb18348d8a3c24c9';
+    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=7d95de6a04331392bb18348d8a3c24c9';
     fetch (apiUrl) 
     .then(function(response) {
         return response.json();
