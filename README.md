@@ -18,7 +18,7 @@ Weather Dashboard was created in order to search for a specific city to view the
  *CSS <br>
  *Javascript/AJAX <br>
  *JQuery <br>
- * Server-Side API
+ *Server-Side API
  
 
  # Contributions
