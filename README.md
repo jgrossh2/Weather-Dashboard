@@ -10,14 +10,15 @@ Weather Dashboard was created in order to search for a specific city to view the
 
 
 # Links
- https://jgrossh2.github.io/weather-dashboard/
+ https://jgrossh2.github.io/Weather-Dashboard/
 
 
 # Technologies used
  *HTML <br>
  *CSS <br>
  *Javascript/AJAX <br>
- *JQuery 
+ *JQuery <br>
+ * Server-Side API
  
 
  # Contributions
