@@ -19,6 +19,7 @@ var Humid2El = document.querySelector('.Humid2');
 var Humid3El = document.querySelector('.Humid3');
 var Humid4El = document.querySelector('.Humid4');
 var Humid5El = document.querySelector('.Humid5');
+var uvEl = document.querySelector('#uv');
 
 
 //dates for weather
@@ -41,6 +42,53 @@ var weekDay5 = moment().add(5, 'days').format('L');
 day5.textContent = weekDay5;
 
 var list = JSON.parse(localStorage.getItem('cities')) || [];
+
+$('.btn').on("click", function(event) {
+    event.preventDefault();
+    console.log("cities")
+
+    //get city value and store as var
+    var city = $(".form-control")
+        .val()
+        .trim();
+    //add new city to list
+    list.push(city);
+    //update list on page
+    $('#cities').append(city);
+    cityDisplay(city);
+    console.log("here")
+    
+    //save city in local storage
+    localStorage.setItem('cities', JSON.stringify(list));
+    $(".form-control").val('');
+    cityWeather(city);
+    currentDisplay(city);
+});
+function currentDisplay(city) {
+    //using api to get icon id to use for url icon image
+    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=7d95de6a04331392bb18348d8a3c24c9';
+    fetch (apiUrl) 
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        var img = document.createElement('img');
+        img.src = 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
+        
+    currentDayEl.innerHTML = city + " (" + displayDay + ") ";
+    currentDayEl.appendChild(img);
+    });
+
+    $("#cities .submit").on("click", function(event) {
+        event.preventDefault();
+        console.log($(this).attr("data-city"));
+        //searches attr of button for searched city
+        var searchCity = $(this).attr("data-city");
+        currentDisplay(searchCity);
+        cityWeather(searchCity);  
+        console.log("madeit");
+    });
+};
 
 // lists cities on the page
 var cityDisplay = function(city) {
@@ -82,7 +130,10 @@ var cityWeather = function(city) {
         //get lat and lon from api to use for uv api
         var lat = data.coord.lat;
         var lon = data.coord.lon;
-        var uvEl = document.querySelector('#uv');
+        getUVIndex(lat, lon);
+    });
+
+function getUVIndex(lat, lon) {
         var apiUrlUv = 'http://api.openweathermap.org/data/2.5/uvi?lat=' + lat + '&lon=' + lon + '&appid=7d95de6a04331392bb18348d8a3c24c9';
         fetch (apiUrlUv)
         .then(function(response) {
@@ -104,8 +155,12 @@ var cityWeather = function(city) {
             $("#uv").addClass("bg-success");
             $("#uv").removeClass("bg-warning");
             $("#uv").removeClass("bg-danger");
-        }
+        };
         });
+        getForecast(lat,lon);
+    }
+
+function getForecast(lat, lon) {
         //api for 5 day forecast
         var upiForecast = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=current,minutely,hourly,alerts&units=imperial&appid=7d95de6a04331392bb18348d8a3c24c9';
         fetch (upiForecast) 
@@ -152,62 +207,9 @@ var cityWeather = function(city) {
             icon5El.appendChild(img5);
         
         });
-    });
+};
 }
-$('.btn').on("click", function(event) {
-    event.preventDefault();
-    console.log("cities")
 
-    //get city value and store as var
-    var city = $(".form-control")
-        .val()
-        .trim();
-    //add new city to list
-    list.push(city);
-    //update list on page
-    $('#cities').append(city);
-    cityDisplay(city);
-    console.log("here")
-    
-    //save city in local storage
-    localStorage.setItem('cities', JSON.stringify(list));
-    $(".form-control").val('');
-    cityWeather(city);
-    //using api to get icon id to use for url icon image
-    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=7d95de6a04331392bb18348d8a3c24c9';
-    fetch (apiUrl) 
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        var img = document.createElement('img');
-        img.src = 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
-        
-    currentDayEl.innerHTML = city + " (" + displayDay + ") ";
-    currentDayEl.appendChild(img);
-    })
-    $("#cities .submit").on("click", function(event) {
-        event.preventDefault();
-        console.log($(this).attr("data-city"));
-        var searchCity = $(this).attr("data-city");
-        
-    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=7d95de6a04331392bb18348d8a3c24c9';
-    fetch (apiUrl) 
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        var img = document.createElement('img');
-        img.src = 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
-
-        currentDayEl.innerHTML = searchCity + "(" + displayDay + ")";
-        currentDayEl.appendChild(img);
-    });
-
-        cityWeather(searchCity);  
-        console.log("madeit");
-    });
-});
 
 
 
