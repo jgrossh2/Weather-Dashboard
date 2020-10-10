@@ -161,6 +161,7 @@ $('.btn').on("click", function(event) {
     var city = $(".form-control")
         .val()
         .trim();
+        if city
     //add new city to list
     list.push(city);
     //update list on page
@@ -188,12 +189,15 @@ $('.btn').on("click", function(event) {
     $("#cities").on("click", function(event) {
         event.preventDefault();
         console.log("works");
+        // for (var i = 0; i < list.length; i++) {
+
         // var citySearchNumber = $(".submit").attr("data-city");
         // console.log(citySearchNumber + " clicked")
-        // var searchAgain = citySearchNumber.getAttribute("data-city");
+        // var searchAgain = list.getAttribute("data-city");
         var searchAgain = list[list.indexOf(city)];
-        // var history = localStorage.getItem('cities', searchAgain);
-        // console.log(searchAgain);
+        console.log(searchAgain);
+        var history = localStorage.getItem('cities', searchAgain);
+        console.log(history);
         
         console.log(searchAgain);
         cityWeather(searchAgain);
@@ -205,6 +209,7 @@ $('.btn').on("click", function(event) {
 
         
         // });
+        
     });
 });
 
