@@ -185,7 +185,7 @@ $('.btn').on("click", function(event) {
     })
     .then(function(data) {
         var img = document.createElement('img');
-        img.src = 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
+        img.src = 'https://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
         
     currentDayEl.innerHTML = city + " (" + displayDay + ") ";
     currentDayEl.appendChild(img);
