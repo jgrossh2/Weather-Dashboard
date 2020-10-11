@@ -129,27 +129,27 @@ var cityWeather = function(city) {
             Humid4El.textContent = "Humidity: " + data.daily[3].humidity + "%";
             Humid5El.textContent = "Humidity: " + data.daily[4].humidity + "%";
             var img1 = document.createElement('img');
-            img1.src = 'https://openweathermap.org/img/w/' + data.daily[0].weather[0].icon + '.png';
+            img1.src = 'http://openweathermap.org/img/w/' + data.daily[0].weather[0].icon + '.png';
             icon1El.textContent = "";
             icon1El.appendChild(img1);
 
             var img2 = document.createElement('img');
-            img2.src = 'https://openweathermap.org/img/w/' + data.daily[1].weather[0].icon + '.png';
+            img2.src = 'http://openweathermap.org/img/w/' + data.daily[1].weather[0].icon + '.png';
             icon2El.textContent = "";
             icon2El.appendChild(img2);
 
             var img3 = document.createElement('img');
-            img3.src = 'https://openweathermap.org/img/w/' + data.daily[2].weather[0].icon + '.png';
+            img3.src = 'http://openweathermap.org/img/w/' + data.daily[2].weather[0].icon + '.png';
             icon3El.textContent = "";
             icon3El.appendChild(img3);
 
             var img4 = document.createElement('img');
-            img4.src = 'https://openweathermap.org/img/w/' + data.daily[3].weather[0].icon + '.png';
+            img4.src = 'http://openweathermap.org/img/w/' + data.daily[3].weather[0].icon + '.png';
             icon4El.textContent = "";
             icon4El.appendChild(img4);
 
             var img5 = document.createElement('img');
-            img5.src = 'https://openweathermap.org/img/w/' + data.daily[4].weather[0].icon + '.png';
+            img5.src = 'http://openweathermap.org/img/w/' + data.daily[4].weather[0].icon + '.png';
             icon5El.textContent = "";
             icon5El.appendChild(img5);
         
