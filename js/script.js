@@ -105,7 +105,7 @@ var cityWeather = function(city) {
             $("#uv").addClass("bg-success");
             $("#uv").removeClass("bg-warning");
             $("#uv").removeClass("bg-danger");
-        };
+        }
         });
 
         //api for 5 day forecast
