@@ -84,7 +84,7 @@ var cityWeather = function(city) {
         var lat = data.coord.lat;
         var lon = data.coord.lon;
     
-        var apiUrlUv = 'http://api.openweathermap.org/data/2.5/uvi?lat=' + lat + '&lon=' + lon + '&appid=88b149a9b0c90bf60cb6281f413f1412';
+        var apiUrlUv = 'https://api.openweathermap.org/data/2.5/uvi?lat=' + lat + '&lon=' + lon + '&appid=88b149a9b0c90bf60cb6281f413f1412';
         fetch (apiUrlUv)
         .then(function(response) {
             return response.json();
