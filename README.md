@@ -10,7 +10,7 @@ Weather Dashboard was created in order to search for a specific city to view the
 
 
 # Links
- http://jgrossh2.github.io/Weather-Dashboard/
+ https://jgrossh2.github.io/Weather-Dashboard/
 
 
 # Technologies used
